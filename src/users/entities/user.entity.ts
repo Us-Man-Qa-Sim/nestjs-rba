@@ -14,7 +14,7 @@ import {
 import { TrimTransformer } from '../../shared/transformers/trim.transformer';
 import { UserGender } from '../enums/gender.enum';
 import { UserStatus } from '../enums/status.enum';
-import { UserRoleEntity } from 'src/users-roles/entities/users-role.entity';
+import { UserRoleEntity } from '../../users-roles/entities/users-role.entity';
 
 @Entity('users')
 export class UserEntity {

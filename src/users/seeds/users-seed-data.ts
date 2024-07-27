@@ -1,3 +1,4 @@
+import { ROLES } from '../../shared/constants/constants';
 import { UserGender } from '../enums/gender.enum';
 import { UserStatus } from '../enums/status.enum';
 
@@ -10,6 +11,7 @@ export const usersData = [
     gender: UserGender.MALE,
     phoneNo: '+090078601',
     password: 'Aa@090078601',
+    role: ROLES.SUPER_ADMIN,
   },
   {
     firstName: 'Ali',
@@ -19,5 +21,6 @@ export const usersData = [
     gender: UserGender.MALE,
     phoneNo: '+090078602',
     password: 'Aa@090078601',
+    role: ROLES.SUPER_ADMIN,
   },
 ];
