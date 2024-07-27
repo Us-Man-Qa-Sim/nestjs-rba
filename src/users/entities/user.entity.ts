@@ -3,6 +3,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -13,6 +14,7 @@ import {
 import { TrimTransformer } from '../../shared/transformers/trim.transformer';
 import { UserGender } from '../enums/gender.enum';
 import { UserStatus } from '../enums/status.enum';
+import { UserRoleEntity } from 'src/users-roles/entities/users-role.entity';
 
 @Entity('users')
 export class UserEntity {
@@ -62,6 +64,9 @@ export class UserEntity {
   @ApiProperty({ required: false })
   @Column({ nullable: true })
   address: string;
+
+  @OneToMany(() => UserRoleEntity, (userRole) => userRole.user)
+  userRoles: UserRoleEntity[];
 
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
