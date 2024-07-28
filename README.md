@@ -1,73 +1,169 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# NestJS Role-Based Authentication
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Boilerplate for NestJS with PostgreSQL.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Table of Contents
 
-## Description
+- [Main Branch](#main-branch)
+- [Database](#database)
+- [Getting Started](#getting-started)
+  - [Pre-requisites](#pre-requisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [API Documentation](#api-documentation)
+  - [Swagger Documentation](#swagger-documentation)
+- [Migrations](#migrations)
+- [Authentication](#authentication)
+- [License](#license)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Main Branch
 
-## Installation
+This branch includes the following modules and features:
 
-```bash
-$ npm install
+1. **Auth Module**:
+
+   - JwtAuth Guard
+   - Permission Guard
+
+2. **Permissions Module**:
+
+   - Role-Based Access Control (RBAC)
+
+3. **Roles Module**
+
+4. **Shared Module**:
+
+   - Custom decorators
+   - Transformers
+   - Other shared functionalities
+
+5. **Users Module**
+
+6. **Users-Role Module**
+
+7. **Seeders**:
+
+   - Users
+   - Roles
+   - Permissions
+
+8. **Passport JWT Strategy**
+
+9. **Global Exception Handling**
+
+## Database
+
+- **PostgreSQL**
+
+## Getting Started
+
+### Pre-requisites
+
+Ensure you have the following installed:
+
+1. Node.js 20.10.0
+2. NestJS 10.2.1
+3. PostgreSQL 16.1
+4. TypeORM 0.3.17
+
+# Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone git@github.com:Us-Man-Qa-Sim/nestjs-rba.git
+   cd nestjs-rba
+   ```
+
+2. Install dependencies:
+
+```sh
+npm install
 ```
 
-## Running the app
+3.  Create a .env file and update your environment configuration accordingly:
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```sh
+DATABASE_HOST=
+DATABASE_PORT=
+DATABASE_USERNAME=
+DATABASE_PASSWORD=
+DATABASE_NAME=
+PORT=
+JWT_SECRET=
+BCRYPT_WORK=
+ACCESS_TOEKN_EXPIRY_TIME_IN_HOURS=
+ENABLE_DOCS=
 ```
 
-## Test
+4. Run database migrations:
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```sh
+npm run typeorm:run-migrations
 ```
 
-## Support
+5. Seed the database:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```sh
+npm run seed
+```
 
-## Stay in touch
+Running the Application
+To start the application, you can use one of the following commands:
+For regular start:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```sh
+npm run start
+```
 
-## License
+For development with watch mode:
 
-Nest is [MIT licensed](LICENSE).
+```sh
+npm run start:dev
+```
+
+## API Documentation
+
+API documentation is available via Swagger at baseUrl + /api-documentation. For example, if you are running the application locally on port 3000, the API documentation will be available at:
+
+```sh
+https://localhost:3000/api-documentation
+```
+
+## Swagger Documentation
+
+Swagger documentation is generated using the @nestjs/swagger plugin with appropriate configurations in nest-cli.
+
+## Migrations
+
+Use the following npm scripts to manage database migrations:
+
+## Generate a new migration:
+
+```sh
+npm run typeorm:generate-migration
+```
+
+## Create a migration:
+
+```sh
+npm run typeorm:create-migration
+```
+
+## Run migrations:
+
+```sh
+npm run typeorm:run-migrations
+```
+
+## Revert migrations:
+
+```sh
+npm run typeorm:revert-migration
+```
+
+## Authentication
+
+JWT is used for authentication with the Passport strategy.
