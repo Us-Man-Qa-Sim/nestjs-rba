@@ -9,12 +9,14 @@ import { ERRORS } from '../../shared/constants/constants';
 import { UnauthorizedError } from '../../shared/errors';
 import { UserRoleEntity } from '../../users-roles/entities/users-role.entity';
 import { PermissionsService } from 'src/permissions/permissions.service';
+import { RolesService } from 'src/roles/roles.service';
 
 @Injectable()
 export class PermissionGuard implements CanActivate {
   constructor(
     private readonly reflector: Reflector,
     private readonly permissionService: PermissionsService,
+    private readonly rolesService: RolesService,
   ) {}
 
   canActivate(context: ExecutionContext): boolean {
@@ -30,15 +32,10 @@ export class PermissionGuard implements CanActivate {
       // aggregate user permissions as single object
       const request = context.switchToHttp().getRequest();
       const userRoles: UserRoleEntity[] = request.user.userRoles;
-      console.log(userRoles);
 
       // for the time being
-      request.user.permissions = {
-        read: false,
-        create: false,
-        delete: false,
-        update: false,
-      };
+      request.user.permissions =
+        this.rolesService.cumulatePermissions(userRoles);
 
       const requiredRoutePermissions = this.reflector.get<object[]>(
         'x',

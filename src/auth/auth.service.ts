@@ -11,6 +11,7 @@ import { UsersService } from '../users/users.service';
 import { TokenPayload } from './auth.interface';
 import { LoginUserDto } from './dto/login-user.dto';
 import { UserWithToken } from './dto/user-with-token.dto';
+import { RolesService } from 'src/roles/roles.service';
 
 @Injectable()
 export class AuthService {
@@ -19,6 +20,7 @@ export class AuthService {
     private readonly userService: UsersService,
     private readonly configService: ConfigService,
     private readonly permissionService: PermissionsService,
+    private readonly rolesService: RolesService,
   ) {}
 
   /**
@@ -108,14 +110,8 @@ export class AuthService {
       const token = this.generateToken({ id: user.id }, 3600);
       // add user permissions to user object
       const userRoles: UserRoleEntity[] = user.userRoles;
-      console.log(userRoles);
+      user['permissions'] = this.rolesService.cumulatePermissions(userRoles);
 
-      user['permissions'] = {
-        read: false,
-        create: false,
-        delete: false,
-        update: false,
-      };
       // response
       return { user, accessToken: token };
     } catch (error) {

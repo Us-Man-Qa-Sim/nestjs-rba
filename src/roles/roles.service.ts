@@ -207,4 +207,46 @@ export class RolesService {
       throw error;
     }
   }
+
+  /**
+   * This function is used to merge permissions of user roles
+   *
+   * @param userRoles
+   * @returns
+   */
+  cumulatePermissions(userRoles) {
+    try {
+      return userRoles.reduce((permissions, userRole) => {
+        const rolePermissionTypes = userRole.role.permission;
+
+        Object.keys(rolePermissionTypes).forEach((permissionType) => {
+          const rolePermissions = rolePermissionTypes[permissionType];
+          const isObject = typeof rolePermissions === 'object';
+
+          if (isObject) {
+            Object.keys(rolePermissions).forEach((permission) => {
+              if (!permissions[permissionType]) {
+                permissions[permissionType] = {
+                  [permission]: rolePermissions[permission],
+                };
+              } else {
+                permissions[permissionType][permission] =
+                  permissions[permissionType][permission] ||
+                  rolePermissions[permission];
+              }
+            });
+          }
+        });
+
+        return permissions;
+      }, {});
+    } catch (error) {
+      Logger.error(
+        `Error in cumulatePermissions of AuthService where userRoles: ${JSON.stringify(
+          userRoles,
+        )}`,
+      );
+      throw error;
+    }
+  }
 }

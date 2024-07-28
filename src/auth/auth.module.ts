@@ -10,6 +10,7 @@ import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './guards/jwt.guard';
 import { PermissionGuard } from './guards/permission.guard';
 import { JwtStrategy } from './passport-strategies/jwt.strategy';
+import { RolesModule } from 'src/roles/roles.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { JwtStrategy } from './passport-strategies/jwt.strategy';
       }),
       inject: [ConfigService],
     }),
+    RolesModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy, JwtAuthGuard, PermissionGuard],

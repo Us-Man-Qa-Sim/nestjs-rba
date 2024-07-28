@@ -190,15 +190,9 @@ export class UsersService {
       }
       // add user permissions to user object
       const userRoles: UserRoleEntity[] = user.userRoles;
-      console.log(userRoles);
 
       // for the time being
-      user['permissions'] = {
-        read: false,
-        create: false,
-        delete: false,
-        update: false,
-      };
+      user['permissions'] = this.roleService.cumulatePermissions(userRoles);
 
       return user;
     } catch (error) {
@@ -427,9 +421,9 @@ export class UsersService {
         );
         // add user permissions to user object
         const userRoles: UserRoleEntity[] = updatedUser.userRoles;
-        console.log(userRoles);
 
-        updatedUser['permissions'] = {};
+        updatedUser['permissions'] =
+          this.roleService.cumulatePermissions(userRoles);
         return updatedUser;
       }
     } catch (error) {
