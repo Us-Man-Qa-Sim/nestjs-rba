@@ -1,0 +1,502 @@
+{
+	"info": {
+		"_postman_id": "777d913c-8aa5-4a4f-b1f9-d1bf26b0084e",
+		"name": "Nestjs RBA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32357922"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE0OTExOCwiZXhwIjoxNzIyMTUyNzE4fQ._dI3LzguBgQXoRUDKipg8cz_uGYkj8rZ7T_KUMc8FUU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Hussain\",\n  \"lastName\": \"Qasim\",\n  \"email\": \"hussainqasim0900@gmail.com\",\n  \"phoneNo\": \"+923038770201\",\n  \"roleId\": \"2ee9452c-206d-4f7c-bd9b-584b568c8bfd\",\n  \"password\": \"Aa@090078601\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/users/create-user",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USERS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1MDExOSwiZXhwIjoxNzIyMTUzNzE5fQ.mDnItF9-NFlsAmouaUVv9RAL45KVYqaFVq1_8yTzKoA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/users?take=10&pageNo=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "take",
+									"value": "10"
+								},
+								{
+									"key": "pageNo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1MDk2NCwiZXhwIjoxNzIyMTU0NTY0fQ.vUSGM-NNclTqqQmQLDA3cLe-yEkk--BREKgNS_xHhtk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\": \"Baloch\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/users/update-user/11c17b04-10f0-43e3-b3ec-ccabfb2a8625",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"update-user",
+								"11c17b04-10f0-43e3-b3ec-ccabfb2a8625"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ARCHIVE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1MDk2NCwiZXhwIjoxNzIyMTU0NTY0fQ.vUSGM-NNclTqqQmQLDA3cLe-yEkk--BREKgNS_xHhtk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/users/archive/11c17b04-10f0-43e3-b3ec-ccabfb2a8625",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"archive",
+								"11c17b04-10f0-43e3-b3ec-ccabfb2a8625"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1MDk2NCwiZXhwIjoxNzIyMTU0NTY0fQ.vUSGM-NNclTqqQmQLDA3cLe-yEkk--BREKgNS_xHhtk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/users/11c17b04-10f0-43e3-b3ec-ccabfb2a8625",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"11c17b04-10f0-43e3-b3ec-ccabfb2a8625"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE-PASSWORD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExYzE3YjA0LTEwZjAtNDNlMy1iM2VjLWNjYWJmYjJhODYyNSIsImlhdCI6MTcyMjE1MjYzNywiZXhwIjoxNzIyMTU2MjM3fQ.W2pHYTMDjna4OFJFBVTDzqCdYSDnlOTbiMZ9jrBzqqk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldPassword\": \"Aa@090078601\",\n    \"newPassword\": \"Aa@080078601\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/users/update-password/11c17b04-10f0-43e3-b3ec-ccabfb2a8625",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"update-password",
+								"11c17b04-10f0-43e3-b3ec-ccabfb2a8625"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"usmanqasim0900@gmail.com\",\n    \"password\": \"Aa@090078601\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "WHO-AM-I",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE0OTExOCwiZXhwIjoxNzIyMTUyNzE4fQ._dI3LzguBgQXoRUDKipg8cz_uGYkj8rZ7T_KUMc8FUU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/auth/who-am-i",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"auth",
+								"who-am-i"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "ROLES",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1Nzg2MCwiZXhwIjoxNzIyMTYxNDYwfQ.DcAijX35n6IU5SxAgBPN8uVObOR-yT4W-IN0scLJizI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/roles?take=10&pageNo=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"roles"
+							],
+							"query": [
+								{
+									"key": "take",
+									"value": "10"
+								},
+								{
+									"key": "pageNo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ROLE",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1Nzg2MCwiZXhwIjoxNzIyMTYxNDYwfQ.DcAijX35n6IU5SxAgBPN8uVObOR-yT4W-IN0scLJizI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"User\", \n  \"permissions\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/roles/2ee9452c-206d-4f7c-bd9b-584b568c8bfd",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"roles",
+								"2ee9452c-206d-4f7c-bd9b-584b568c8bfd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1Nzg2MCwiZXhwIjoxNzIyMTYxNDYwfQ.DcAijX35n6IU5SxAgBPN8uVObOR-yT4W-IN0scLJizI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"User\",\n    \"description\": \"End user\",\n    \"permissions\": {\n            \"userPermissions\": {\n                \"read\": true,\n                \"create\": false,\n                \"delete\": false,\n                \"update\": false\n            },\n            \"rolePermissions\": {\n                \"read\": false,\n                \"create\": false,\n                \"delete\": false,\n                \"update\": false\n            }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/roles/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"roles",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ARCHIVE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1Nzg2MCwiZXhwIjoxNzIyMTYxNDYwfQ.DcAijX35n6IU5SxAgBPN8uVObOR-yT4W-IN0scLJizI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/roles/archive/08899d43-6c49-4caf-b010-229a6f94dbed",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"roles",
+								"archive",
+								"08899d43-6c49-4caf-b010-229a6f94dbed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyNTViMWI4LWQzNjUtNGZhNi05YTAzLThjNzM4NmIzMjMzYyIsImlhdCI6MTcyMjE1Nzg2MCwiZXhwIjoxNzIyMTYxNDYwfQ.DcAijX35n6IU5SxAgBPN8uVObOR-yT4W-IN0scLJizI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"End user updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/roles/update/08899d43-6c49-4caf-b010-229a6f94dbed",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"roles",
+								"update",
+								"08899d43-6c49-4caf-b010-229a6f94dbed"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
