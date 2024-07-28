@@ -7,4 +7,11 @@ export class Utils {
   public static trimLowerString(str: string): string {
     return str.trim().toLowerCase();
   }
+
+  public static verifyPassword(
+    userPassword: string,
+    passwordInput: string,
+  ): boolean {
+    return bcrypt.compareSync(passwordInput, userPassword);
+  }
 }

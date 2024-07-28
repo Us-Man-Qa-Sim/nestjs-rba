@@ -26,3 +26,19 @@ export const ERRORS = {
   USER_PENDING: 'User status is pending, please accept invite or contact admin',
   USER_NOT_PENDING: "User don't have pending invite",
 };
+
+export const JWT_SECRET = 'JWT_SECRET';
+export const ACCESS_TOKEN_EXPIRY_TIME = '3600';
+
+export const MESSAGES = {
+  USER_CREATED_SUCCESSFULLY: 'User created successfully',
+  USER_LOGGED_IN_SUCCESSFULLY: 'User logged in successfully',
+  QUERY_SUCCESS: 'Query executed successfully',
+  INVITE_VERIFIED: 'Invite verified successfully',
+  EMAIL_SENT: 'Email sent successfully',
+  RESOURCE_CREATED_SUCCESSFULLY: 'Resource created successfully',
+  SIGNED_URL_FETCHED: 'Signed URL successfully fetched',
+  PREVIEW_SIGNED_URL_FETCHED: 'Preview signed url fetched successfully.',
+  PASSWORD_UPDATED_SUCCESSFULLY: 'Password updated successfully',
+  INVITE_RESEND: 'Please find your resent invite link below',
+};
