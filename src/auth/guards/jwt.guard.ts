@@ -12,7 +12,7 @@ import { UnauthorizedError } from '../../shared/errors';
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') implements CanActivate {
   constructor(private readonly reflector: Reflector) {
-    super(); // This is required as constructors for derived classed must conatin a super call
+    super(); // This is required as constructors for derived classed must contain a super call
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {

@@ -42,3 +42,7 @@ export const MESSAGES = {
   PASSWORD_UPDATED_SUCCESSFULLY: 'Password updated successfully',
   INVITE_RESEND: 'Please find your resent invite link below',
 };
+
+export const REGEX = {
+  PASSWORD: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+};

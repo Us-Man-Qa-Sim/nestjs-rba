@@ -62,4 +62,21 @@ export class RolesService {
       throw error;
     }
   }
+
+  /**
+   * This is to find roles,
+   *
+   * @param options
+   * @returns RoleEntity[]
+   */
+  async find(options: FindOptionsWhere<RoleEntity>): Promise<RoleEntity[]> {
+    try {
+      return this.roleRepository.find({ where: options });
+    } catch (error) {
+      Logger.error(
+        `Error in findAll of RolesService where options: ${JSON.stringify(options)}`,
+      );
+      throw error;
+    }
+  }
 }
