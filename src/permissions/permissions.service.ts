@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindOptionsWhere, Repository } from 'typeorm';
 import { PermissionEntity } from './entities/permission.entity';
 import { PermissionKeys, PermissionLevel } from './permissions.enum';
 import { PermissionObject } from './permission.interface';
@@ -77,5 +77,34 @@ export class PermissionsService {
       }
     }
     return permissionObject as PermissionObject;
+  }
+
+  /**
+   * This function is used to update single permission while taking permissionObject
+   *
+   * @param options
+   * @param data
+   * @returns PermissionEntity
+   */
+  async update(
+    options: FindOptionsWhere<PermissionEntity>,
+    permissions: {
+      [key in PermissionKeys]: PermissionLevel;
+    },
+  ): Promise<PermissionEntity> {
+    try {
+      const newPermissionsObject = this.getPermissions(
+        permissions,
+      ) as unknown as PermissionEntity;
+      await this.permissionRepo.update(options, newPermissionsObject);
+      return this.permissionRepo.findOne({ where: options });
+    } catch (error) {
+      Logger.error(
+        `Error in update of PermissionsService where options: ${JSON.stringify(
+          options,
+        )} and data: ${JSON.stringify(permissions)}`,
+      );
+      throw error;
+    }
   }
 }
